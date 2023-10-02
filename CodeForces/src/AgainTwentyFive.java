@@ -8,42 +8,13 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.StringTokenizer;
 
-public class AddPlusMinusSign1774A{
+public class AgainTwentyFive{
 
 	public static void main(String[] args) throws IOException {
 		PrintWriter out=new PrintWriter(System.out);
 		FastScanner fs= new FastScanner();
-		int t=fs.nextInt();
-		for(int i=0; i<t; i++) {
-			int n=fs.nextInt();
-			String s= fs.nextL();
-			char [] ch= s.toCharArray();
-			int sum=0;
-			String mark="";
-			for(int j=0; j<n; j++) {
-				if(j==0 && ch[j]=='1') {
-					sum=1;
-				}
-				else if(j==0 && ch[j]=='0') {
-					sum=0;
-				}
-				else if(ch[j]=='0' && sum==0) {
-					mark=mark+"+";
-				}
-				else if (sum==1 && ch[j]=='1') {
-					sum=sum-1;
-					mark=mark+"-";
-				}
-				else if (sum==0 && ch[j]=='1') {
-					sum=sum+1;
-					mark=mark+"+";
-				}
-				else {
-					mark=mark+"+";
-				}
-			}
-			out.println(mark);
-		}
+		fs.nextL();
+		out.println(25);
 
 		
 		out.close();
@@ -109,9 +80,7 @@ public class AddPlusMinusSign1774A{
 			while (!st.hasMoreTokens())
 				try { 
 					st=new StringTokenizer(br.readLine());				               
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				} catch (IOException e) {}
 			return st.nextToken();
 		}
 		

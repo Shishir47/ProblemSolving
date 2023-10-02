@@ -8,44 +8,32 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.StringTokenizer;
 
-public class AddPlusMinusSign1774A{
+public class MKnezsConstructiveForcesTask1779B{
 
 	public static void main(String[] args) throws IOException {
 		PrintWriter out=new PrintWriter(System.out);
 		FastScanner fs= new FastScanner();
 		int t=fs.nextInt();
-		for(int i=0; i<t; i++) {
+		while(t-->0) {
 			int n=fs.nextInt();
-			String s= fs.nextL();
-			char [] ch= s.toCharArray();
-			int sum=0;
-			String mark="";
-			for(int j=0; j<n; j++) {
-				if(j==0 && ch[j]=='1') {
-					sum=1;
-				}
-				else if(j==0 && ch[j]=='0') {
-					sum=0;
-				}
-				else if(ch[j]=='0' && sum==0) {
-					mark=mark+"+";
-				}
-				else if (sum==1 && ch[j]=='1') {
-					sum=sum-1;
-					mark=mark+"-";
-				}
-				else if (sum==0 && ch[j]=='1') {
-					sum=sum+1;
-					mark=mark+"+";
-				}
-				else {
-					mark=mark+"+";
-				}
+			if(n==3) {
+				out.println("NO");
 			}
-			out.println(mark);
+			else if(n%2==0) {
+				out.println("YES");
+				for(int i=0; i<n/2; i++) {
+					out.print("1 -1 ");
+				}
+				out.println();
+			}
+			else {
+				out.println("YES");
+				for(int i=0; i<n/2; i++) {
+					out.print(1-(n/2)+" "+(n/2)+" ");
+				}
+				out.println(1-(n/2));
+			}
 		}
-
-		
 		out.close();
 		System.gc();
 		
@@ -109,9 +97,7 @@ public class AddPlusMinusSign1774A{
 			while (!st.hasMoreTokens())
 				try { 
 					st=new StringTokenizer(br.readLine());				               
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				} catch (IOException e) {}
 			return st.nextToken();
 		}
 		

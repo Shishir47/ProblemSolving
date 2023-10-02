@@ -8,44 +8,38 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.StringTokenizer;
 
-public class AddPlusMinusSign1774A{
+public class HallofFame1779A{
 
 	public static void main(String[] args) throws IOException {
 		PrintWriter out=new PrintWriter(System.out);
 		FastScanner fs= new FastScanner();
 		int t=fs.nextInt();
-		for(int i=0; i<t; i++) {
+		while(t-->0) {
 			int n=fs.nextInt();
-			String s= fs.nextL();
-			char [] ch= s.toCharArray();
-			int sum=0;
-			String mark="";
-			for(int j=0; j<n; j++) {
-				if(j==0 && ch[j]=='1') {
-					sum=1;
-				}
-				else if(j==0 && ch[j]=='0') {
-					sum=0;
-				}
-				else if(ch[j]=='0' && sum==0) {
-					mark=mark+"+";
-				}
-				else if (sum==1 && ch[j]=='1') {
-					sum=sum-1;
-					mark=mark+"-";
-				}
-				else if (sum==0 && ch[j]=='1') {
-					sum=sum+1;
-					mark=mark+"+";
-				}
-				else {
-					mark=mark+"+";
+			String s=fs.nextL();
+			char [] arr= s.toCharArray();
+			int count=0;
+			for(int i=0; i<arr.length; i++) {
+				if(arr[i]=='R') {
+					count++;
+					
 				}
 			}
-			out.println(mark);
+			if(count==0 || count==n) {
+				out.println(-1);
+			}
+			for(int i=1; i<n; i++) {
+				char ch=arr[i];
+				if(ch=='R' && arr[i-1]=='L') {
+					out.println(i);
+					break;
+				}
+				if(ch=='L' && arr[i-1]=='R') {
+					out.println(0);
+					break;
+				}
+			}
 		}
-
-		
 		out.close();
 		System.gc();
 		
@@ -109,9 +103,7 @@ public class AddPlusMinusSign1774A{
 			while (!st.hasMoreTokens())
 				try { 
 					st=new StringTokenizer(br.readLine());				               
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				} catch (IOException e) {}
 			return st.nextToken();
 		}
 		

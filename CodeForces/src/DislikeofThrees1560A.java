@@ -8,43 +8,30 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.StringTokenizer;
 
-public class AddPlusMinusSign1774A{
+public class DislikeofThrees1560A{
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		PrintWriter out=new PrintWriter(System.out);
 		FastScanner fs= new FastScanner();
 		int t=fs.nextInt();
-		for(int i=0; i<t; i++) {
-			int n=fs.nextInt();
-			String s= fs.nextL();
-			char [] ch= s.toCharArray();
-			int sum=0;
-			String mark="";
-			for(int j=0; j<n; j++) {
-				if(j==0 && ch[j]=='1') {
-					sum=1;
+		for(int tt=0; tt<t; tt++) {
+			int k=fs.nextInt();
+			int count=0,index=1;
+			for(int i=1; ; i++) {
+				if(i%3==0 || i%10==3) {
+					continue;
 				}
-				else if(j==0 && ch[j]=='0') {
-					sum=0;
+				else if(index==k) {
+					count=i;
+					break;
 				}
-				else if(ch[j]=='0' && sum==0) {
-					mark=mark+"+";
-				}
-				else if (sum==1 && ch[j]=='1') {
-					sum=sum-1;
-					mark=mark+"-";
-				}
-				else if (sum==0 && ch[j]=='1') {
-					sum=sum+1;
-					mark=mark+"+";
-				}
-				else {
-					mark=mark+"+";
+				else{
+					index++;
 				}
 			}
-			out.println(mark);
+			out.println(count);
 		}
-
+		out.println();
 		
 		out.close();
 		System.gc();
@@ -109,9 +96,7 @@ public class AddPlusMinusSign1774A{
 			while (!st.hasMoreTokens())
 				try { 
 					st=new StringTokenizer(br.readLine());				               
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				} catch (IOException e) {}
 			return st.nextToken();
 		}
 		

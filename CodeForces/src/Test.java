@@ -13,23 +13,8 @@ public class Test{
 	public static void main(String[] args) {
 		PrintWriter out=new PrintWriter(System.out);
 		FastScanner fs= new FastScanner();
-		int cs=fs.nextInt();
-		for(int j=0; j<cs; j++) {
-			int t=fs.nextInt();
-			int n=fs.nextInt();
-			int count=1;
-			out.print("1 ");
-			for(int i=1; i<t; i++) {
-				if(n-count-i+1>=t-i) {
-					count=count+i;
-				}
-				else {
-					count++;
-				}
-				out.print(count+" ");
-			}
-			out.println();
-		}
+		int p=30;
+		out.println(1<<p);
 
 		out.close();
 		System.gc();
@@ -108,6 +93,25 @@ public class Test{
 			return br.readLine();
 		}
     }
+    /*
+     static class FastScanner{
+     	BufferedReader br= new BufferedReader(new InputStreamReader(System.in);
+     	StringTokenizer st= new StringTokenizer("");
+     	String next(){
+     		while(!st.hasMoreTokens()){
+     			try{
+     				st= new StringTokenizer(br.readLine());
+     			}
+     			catch(IOException e){
+     				e.printStackTrace();
+     			}
+     		return st.nextToken();
+     	}
+     	int nextInt(){
+     		return Integer.ParseInt(next());
+     	}
+     }
+     */
     
 
 } 
